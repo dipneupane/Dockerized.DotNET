@@ -1,0 +1,6 @@
+@DotNet_AWS_Deployment_Demo_HostAddress = http://localhost:5234
+
+GET {{DotNet_AWS_Deployment_Demo_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
