@@ -1,4 +1,5 @@
 using DotNet_AWS_Deployment_Demo.Context;
+using DotNet_AWS_Deployment_Demo.Extensions;
 using DotNet_AWS_Deployment_Demo.Services;
 using Microsoft.EntityFrameworkCore;
 
@@ -15,16 +16,10 @@ var connectionString = builder.Configuration.GetConnectionString("DefaultConnect
 builder.Services.AddDbContext<ApplicationDbContext>(c => c.UseNpgsql(connectionString, m => m.MigrationsAssembly(assemblyName)));
 var app = builder.Build();
 
-using var scope = app.Services.CreateScope();
-var context = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
-if (context.Database.GetPendingMigrations().Any())
-{
-    await context.Database.MigrateAsync();
-}
-
+await app.InitDatabase();
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment() || app.Environment.IsProduction())
+if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();

@@ -3,7 +3,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 #nullable disable
 
-namespace DotNet_AWS_Deployment_Demo.Migrations
+namespace Dockerized.DotNET.Migrations
 {
     /// <inheritdoc />
     public partial class AddTableArticle : Migration

@@ -8,10 +8,10 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 #nullable disable
 
-namespace DotNet_AWS_Deployment_Demo.Migrations
+namespace Dockerized.DotNET.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20250521124644_AddTable-Article")]
+    [Migration("20250602132216_AddTable-Article")]
     partial class AddTableArticle
     {
         /// <inheritdoc />
